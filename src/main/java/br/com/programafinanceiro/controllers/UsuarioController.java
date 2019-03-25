@@ -56,6 +56,7 @@ public class UsuarioController {
 			modelAndView.addObject("msg", "Login Inválido - Escolha outro");
 			return modelAndView;
 		}
+		
 
 	}
 
