@@ -60,7 +60,7 @@ class AppWebConfiguration extends WebMvcConfigurerAdapter {
 		return resolver;
 	}
 
-	@Bean
+	@Bean(name="messageSource")
 	public MessageSource messageSource() {
 		ReloadableResourceBundleMessageSource messageSource = new ReloadableResourceBundleMessageSource();
 		messageSource.setBasename("/WEB-INF/messages");

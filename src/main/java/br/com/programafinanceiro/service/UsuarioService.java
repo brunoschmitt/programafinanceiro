@@ -21,9 +21,9 @@ public class UsuarioService {
 
 	@Transactional
 	public void save(Usuario usuario) throws Exception {
-		if (usuarioExistente(usuario)) {
-			throw new Exception("Login ja existente");
-		} else {
+		if (usuarioExistente(usuario)) { 
+			throw new Exception();
+		} else {	 
 			Random randon = new Random();
 			int n = randon.nextInt((9999 - 1000)+ 1) + 1000;
 			usuario.getConta().setNumeroConta(n);

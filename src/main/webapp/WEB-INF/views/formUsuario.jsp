@@ -37,6 +37,9 @@
 			<button type="submit">Cadastrar</button>
 			<a href="${s:mvcUrl('LC#formulario').build()}"> Ja é cadastrado?? Clique aqui</a>
 		</form:form>
+		<c:if test="${not empty msg}">
+			<h3>${msg}</h3>
+		</c:if>
 	</div>
 
 </body>
