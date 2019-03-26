@@ -11,8 +11,14 @@
 		<finalName>programafinanceiro</finalName>
 	</build>
 	<dependencies>
-	
-
+		
+		<!-- dependencias do primefaces -->
+		<dependency>
+			<groupId>org.primefaces</groupId>
+			<artifactId>primefaces</artifactId>
+			<version>6.2</version>
+		</dependency>
+		
 		<dependency>
 			<groupId>org.postgresql</groupId>
 			<artifactId>postgresql</artifactId>
@@ -174,7 +180,7 @@
 
 	<properties>
 
-		
+
 
 		<failOnMissingWebXml>false</failOnMissingWebXml>
 		<maven.compiler.source>1.8</maven.compiler.source>

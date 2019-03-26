@@ -50,7 +50,8 @@ public class UsuarioController {
 
 		try {
 			usuarioService.save(usuario);
-			return new ModelAndView("loginForm");
+			redirectAttributes.addFlashAttribute("msg", "Usuario cadastrado com sucesso!");
+			return new ModelAndView("redirect:/loginForm");
 		} catch (Exception e) {
 			ModelAndView modelAndView = new ModelAndView("formUsuario");
 			modelAndView.addObject("msg", "Login Inválido - Escolha outro");
