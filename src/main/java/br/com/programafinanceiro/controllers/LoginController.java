@@ -5,6 +5,7 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
 
 import br.com.programafinanceiro.dao.UsuarioDAO;
 import br.com.programafinanceiro.model.Usuario;
@@ -18,18 +19,19 @@ public class LoginController {
 
 	@RequestMapping("/loginForm")
 	public String formulario(Usuario usuario) {
-		// TODO usuario ja esta logado?
 		return "/loginForm";
 	}
 
 	@RequestMapping("/efetuaLogin")
-	public String efetuaLogin(Usuario usuario, HttpSession session) {
-
-		if (usuarioService.usuarioExistente(usuario)) {
+	public ModelAndView efetuaLogin(Usuario usuario, HttpSession session) {
+		ModelAndView modelAndView = new ModelAndView("usuarios/menu");
+		
+		if (usuarioService.usuarioExistente(usuario) && usuarioService.senhaCorreta(usuario)) {
 			session.setAttribute("usuarioLogado", usuario);
-			return "usuarios/menu";
+			return modelAndView.addObject("login", "Usuario Logado com Sucesso");
 		}
-		return "redirect:loginForm";
+		
+		return new ModelAndView("loginForm").addObject("loginInvalido", "Usuario ou senha incorretos");
 	}
 
 	@RequestMapping("/logout")

@@ -8,9 +8,12 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Menu</title>
 </head>
 <body>
+	<c:if test="${not empty login}">
+		<h3>${login}</h3>
+	</c:if>
 	<h1>Bem Vindo ao Controle de Finanças</h1>
 	<div>
 		<ul>

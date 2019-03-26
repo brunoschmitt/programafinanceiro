@@ -27,6 +27,9 @@
 				<a href="${s:mvcUrl('UC#form').build()}">Cadastrar-se </a>
 			</div>
 		</form:form>
+		<c:if test="${not empty loginInvalido}">
+			<h3>${loginInvalido}</h3>
+		</c:if>
 	</div>
 </body>
 </html>
