@@ -6,43 +6,48 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+	crossorigin="anonymous">
+
 <meta charset="UTF-8">
 <title>Adicionar Movimentação Financeira</title>
 </head>
 <body>
-	<div>
+	<div class="conteiner m-2 w-25 p-2"">
 		<form:form action="${s:mvcUrl('MFC#adicionar').build()}" modelAttribute="movimentacao" method="POST">
-			<div>
+			<div class="form-group">
 				<label>Valor</label> 
-				<form:input type="text" path="valor" />
+				<form:input type="text" path="valor" class="form-control" />
 				<form:errors path="valor" class="help-inline"/>
 			</div>
-			<div>
+			<div class="form-group">
 				<label>Tipo de Valor</label> 
-				<select name="tipoValor">
+				<select name="tipoValor" class="custom-select">
 					<option value="ENTRADA"> Entrada</option>
 					<option value="SAIDA"> Saida</option>
 				</select>
 			</div>
-			<div>
+			<div class="form-group">
 				<label>Tipo</label> 
-				<select name="tipo">
+				<select name="tipo" class="custom-select">
 					<option value="CARTAO">Cartão</option>
 					<option value="CHEQUE">Cheque</option>
 				</select>
 			</div>
-			<div>
+			<div class="form-group">
 				<label>Data</label> 
-				<form:input type="dateTime" path="data" />
+				<form:input type="dateTime" path="data" class="form-control" />
 				<form:errors path="data" class="help-inline"></form:errors>
 			</div>
-			<div>
+			<div class="form-group">
 				<label>Descrição</label> 
-				<form:input type="text" path="descricao" />
+				<form:input type="text" path="descricao" class="form-control" />
 				<form:errors path="descricao" class="help-inline"></form:errors>
 			</div>
 
-			<button type="submit">Adicionar</button>
+			<button type="submit" class="btn btn-primary">Adicionar</button>
 			<div>
 				<a href="${s:mvcUrl('MFC#voltar').build()}"> Voltar</a>
 			</div>
