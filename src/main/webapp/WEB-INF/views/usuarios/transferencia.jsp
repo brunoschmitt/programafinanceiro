@@ -30,7 +30,7 @@
 			</div>
 			<button type="submit" class="btn btn-primary"> Transferir</button>
 			<div class="form-group mt-3">
-				<a href="menu"> Voltar</a>
+				<a href="menu"  class="badge badge-primary"> Voltar</a>
 			</div>
 		</form:form>
 	</div>

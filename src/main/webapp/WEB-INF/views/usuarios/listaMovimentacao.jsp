@@ -65,7 +65,7 @@
 		</form>
 		<div>
 			<ul>
-				<li><a href="menu"> Voltar</a></li>
+				<li><a href="menu"  class="badge badge-primary"> Voltar</a></li>
 			</ul>
 		</div>
 	</div>

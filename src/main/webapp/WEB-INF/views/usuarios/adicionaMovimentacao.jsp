@@ -49,7 +49,7 @@
 
 			<button type="submit" class="btn btn-primary">Adicionar</button>
 			<div>
-				<a href="${s:mvcUrl('MFC#voltar').build()}"> Voltar</a>
+				<a href="${s:mvcUrl('MFC#voltar').build()}"  class="badge badge-primary"> Voltar</a>
 			</div>
 		</form:form>
 	</div>

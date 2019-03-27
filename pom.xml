@@ -6,7 +6,7 @@
 	<artifactId>programafinanceiro</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>war</packaging>
-	<name>financeiro</name>
+	<name>programafinanceiro</name>
 	<build>
 		<finalName>programafinanceiro</finalName>
 	</build>
