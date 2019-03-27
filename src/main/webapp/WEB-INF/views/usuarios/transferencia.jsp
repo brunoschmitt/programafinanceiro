@@ -17,7 +17,7 @@
 </head>
 <body>
 
-	<div class="ml-5 mt-5">
+	<div class="conteiner ml-5 mt-5">
 		<h3> Transferencia para outra conta</h3>
 		<form:form action="transferir" method="POST">
 			<div class="form-group">
