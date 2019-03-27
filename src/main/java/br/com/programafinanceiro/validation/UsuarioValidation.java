@@ -20,6 +20,7 @@ public class UsuarioValidation implements Validator{
 		ValidationUtils.rejectIfEmpty(errors, "login", "field.required");
 		ValidationUtils.rejectIfEmpty(errors, "senha", "field.required");
 		ValidationUtils.rejectIfEmpty(errors, "nome","field.required");
+
 	}
 
 }

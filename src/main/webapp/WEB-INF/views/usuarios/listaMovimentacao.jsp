@@ -42,7 +42,7 @@
 		</table>
 	</div>
 
-	<div class="conteiner m-2 w-25 p-2">
+	<div class="conteiner m-2  p-2">
 		<form action="listarPorPeriodo" method="GET">
 			<label> Filtrar por data</label> 
 			<div>

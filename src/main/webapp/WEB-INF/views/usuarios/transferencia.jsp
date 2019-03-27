@@ -7,23 +7,29 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<link rel="stylesheet"
+		  href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+		  integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+		  crossorigin="anonymous">
+
 <meta charset="UTF-8">
 <title>Transferencia</title>
 </head>
 <body>
-	<h3> Transferencia para outra conta</h3>
-	<div>
+
+	<div class="ml-5 mt-5">
+		<h3> Transferencia para outra conta</h3>
 		<form:form action="transferir" method="POST">
-			<div>
+			<div class="form-group">
 				<label>Destinatario: Conta</label>
-				<input type="text" name="numeroConta" />
+				<input class="form-control w-25" type="text" name="numeroConta" />
 			</div>
-			<div>
+			<div class="form-group">
 				<label>Valor </label>
-				<input type="text" name="valor" />
+				<input class="form-control w-25" type="text" name="valor" />
 			</div>
-			<button type="submit"> Transferir</button>
-			<div>
+			<button type="submit" class="btn btn-primary"> Transferir</button>
+			<div class="form-group mt-3">
 				<a href="menu"> Voltar</a>
 			</div>
 		</form:form>
