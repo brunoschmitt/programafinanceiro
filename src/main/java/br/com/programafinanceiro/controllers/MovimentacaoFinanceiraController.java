@@ -6,6 +6,7 @@ import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.WebDataBinder;
@@ -15,6 +16,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.context.WebApplicationContext;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 import org.springframework.web.servlet.ModelAndView;
@@ -33,6 +35,7 @@ import br.com.programafinanceiro.validation.MovimentacaoValidation;
 
 @Controller
 @RequestMapping("/movimentacoes")
+@Scope(value = WebApplicationContext.SCOPE_REQUEST)
 public class MovimentacaoFinanceiraController {
 
 	@Autowired
@@ -47,11 +50,12 @@ public class MovimentacaoFinanceiraController {
 	@Autowired
 	MovimentacaoFinanceiraService movimentacaoService;
 
-	MovimentacaoValidation validator;
+	MovimentacaoValidation movimentacaoValidation;
+
 
 	@InitBinder
 	public void initBinder(WebDataBinder binder) {
-		binder.addValidators(validator);
+		binder.setValidator(movimentacaoValidation);
 	}
 	
 	
@@ -65,7 +69,7 @@ public class MovimentacaoFinanceiraController {
 	@RequestMapping(method = RequestMethod.POST)
 	public ModelAndView adicionar(@ModelAttribute("movimentacao") @Valid MovimentacaoFinanceira movimentacao, BindingResult result,
 			RedirectAttributes redirectAttributes) {
-		System.out.println(result.hasErrors());
+//		System.out.println(result.hasErrors());
 		
 		
 		if (result.hasErrors()) {
@@ -123,7 +127,7 @@ public class MovimentacaoFinanceiraController {
 
 	@RequestMapping("detalhe")
 	public ModelAndView detalhe() {
-		Usuario usuario = (Usuario) session().getAttribute("usuarioLogado");
+		Usuario usuario = getUsuarioLogado();
 		Usuario user = usuarioService.findByLogin(usuario.getLogin());
 		Conta conta = contaService.findByNumeroConta(user.getConta().getNumeroConta());
 		ModelAndView modelAndView = new ModelAndView("usuarios/detalhe");

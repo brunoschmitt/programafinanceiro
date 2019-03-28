@@ -14,85 +14,84 @@ import org.springframework.format.annotation.DateTimeFormat;
 @Entity
 public class MovimentacaoFinanceira {
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	private int id;
-	private double valor;
-	private TipoValor tipoValor;
-	private TipoMovimentacao tipo;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private int id;
+    private double valor;
+    private TipoValor tipoValor;
+    private TipoMovimentacao tipo;
 
-	@ManyToOne
-	@JoinColumn(name = "conta_numeroconta")
-	private Conta conta;
+    @ManyToOne
+    @JoinColumn(name = "conta_numeroconta")
+    private Conta conta;
 
-	@DateTimeFormat
-	private Date data;
-	
-	private String descricao;
+    @DateTimeFormat
+    private Date data;
 
-	public Conta getConta() {
-		return conta;
-	}
+    private String descricao;
 
-	public void setConta(Conta conta) {
-		this.conta = conta;
-	}
+    public Conta getConta() {
+        return conta;
+    }
 
-	public int getId() {
-		return id;
-	}
+    public void setConta(Conta conta) {
+        this.conta = conta;
+    }
 
-	public void setId(int id) {
-		this.id = id;
-	}
+    public int getId() {
+        return id;
+    }
 
-	public double getValor() {
-		return valor;
-	}
+    public void setId(int id) {
+        this.id = id;
+    }
 
-	public void setValor(double valor) {
-		this.valor = valor;
-	}
+    public double getValor() {
+        return valor;
+    }
 
-	public TipoValor getTipoValor() {
-		return tipoValor;
-	}
+    public void setValor(double valor) {
+        this.valor = valor;
+    }
 
-	public void setTipoValor(TipoValor tipoValor) {
-		this.tipoValor = tipoValor;
-	}
+    public TipoValor getTipoValor() {
+        return tipoValor;
+    }
 
-	public TipoMovimentacao getTipo() {
-		return tipo;
-	}
+    public void setTipoValor(TipoValor tipoValor) {
+        this.tipoValor = tipoValor;
+    }
 
-	public void setTipo(TipoMovimentacao tipo) {
-		this.tipo = tipo;
-	}
+    public TipoMovimentacao getTipo() {
+        return tipo;
+    }
 
-	public Date getData() {
-		return data;
-	}
+    public void setTipo(TipoMovimentacao tipo) {
+        this.tipo = tipo;
+    }
 
-	public void setData(Date data) {
-		this.data = data;
-	}
+    public Date getData() {
+        return data;
+    }
 
-	public String getDescricao() {
-		return descricao;
-	}
+    public void setData(Date data) {
+        this.data = data;
+    }
 
-	public void setDescricao(String descricao) {
-		this.descricao = descricao;
-	}
+    public String getDescricao() {
+        return descricao;
+    }
 
-	@Override
-	public String toString() {
-		return "MovimentacaoFinanceira [id=" + id + ", valor=" + valor + ", tipoValor=" + tipoValor + ", tipo=" + tipo
-				+ ", data=" + data + ", descricao=" + descricao + ", getId()=" + getId() + ", getValor()=" + getValor()
-				+ ", getTipoValor()=" + getTipoValor() + ", getTipo()=" + getTipo() + ", getData()=" + getData()
-				+ ", getDescricao()=" + getDescricao() + ", getClass()=" + getClass() + ", hashCode()=" + hashCode()
-				+ ", toString()=" + super.toString() + "]";
-	}
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
+    }
 
+    @Override
+    public String toString() {
+        return "MovimentacaoFinanceira [id=" + id + ", valor=" + valor + ", tipoValor=" + tipoValor + ", tipo=" + tipo
+                + ", data=" + data + ", descricao=" + descricao + ", getId()=" + getId() + ", getValor()=" + getValor()
+                + ", getTipoValor()=" + getTipoValor() + ", getTipo()=" + getTipo() + ", getData()=" + getData()
+                + ", getDescricao()=" + getDescricao() + ", getClass()=" + getClass() + ", hashCode()=" + hashCode()
+                + ", toString()=" + super.toString() + "]";
+    }
 }

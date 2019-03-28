@@ -39,13 +39,13 @@ import br.com.programafinanceiro.interceptor.AutorizerInterceptor;
 import br.com.programafinanceiro.service.MovimentacaoFinanceiraService;
 
 @EnableWebMvc
-@ComponentScan(basePackageClasses = 
-		{ 
-				UsuarioDAO.class, 
-				ContaDAO.class, 
+@ComponentScan(basePackageClasses =
+		{
+				UsuarioDAO.class,
+				ContaDAO.class,
 				MovimentacaoFinanceiraDAO.class,
-				HomeController.class, 
-				MovimentacaoFinanceiraController.class, 
+				HomeController.class,
+				MovimentacaoFinanceiraController.class,
 				MovimentacaoFinanceiraService.class
 		})
 @EnableCaching
@@ -69,12 +69,12 @@ class AppWebConfiguration extends WebMvcConfigurerAdapter {
 
 		return messageSource;
 	}
-	
+
 	@Bean
 	public LocalValidatorFactoryBean getValidator() {
-	    LocalValidatorFactoryBean bean = new LocalValidatorFactoryBean();
-	    bean.setValidationMessageSource(messageSource());
-	    return bean;
+		LocalValidatorFactoryBean bean = new LocalValidatorFactoryBean();
+		bean.setValidationMessageSource(messageSource());
+		return bean;
 	}
 
 	@Bean
@@ -100,13 +100,13 @@ class AppWebConfiguration extends WebMvcConfigurerAdapter {
 		manager.setCacheBuilder(builder);
 		return manager; // new ConcurrentMapCacheManager();
 	}
-	
+
 	@Bean
 	public ViewResolver contentNegotiationViewResolver(ContentNegotiationManager manager) {
 		List<ViewResolver> viewResolvers = new ArrayList<>();
 		viewResolvers.add(internalResourceViewResolver());
 		viewResolvers.add(new JsonViewResolver());
-		
+
 		ContentNegotiatingViewResolver resolver = new ContentNegotiatingViewResolver();
 		resolver.setViewResolvers(viewResolvers);
 		resolver.setContentNegotiationManager(manager);
@@ -117,15 +117,17 @@ class AppWebConfiguration extends WebMvcConfigurerAdapter {
 	public void configureDefaultServletHandling(DefaultServletHandlerConfigurer configurer) {
 		configurer.enable();
 	}
-	
+
 	@Override
 	public void addInterceptors(InterceptorRegistry registry) {
 		registry.addInterceptor(new AutorizerInterceptor());
 	}
-	
+
 	@Bean
 	public LocaleResolver localeResolver(){
-	    return new CookieLocaleResolver();
+		return new CookieLocaleResolver();
 	}
 
 }
+
+
